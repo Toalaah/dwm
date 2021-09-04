@@ -7,8 +7,8 @@ static const unsigned int gappx[] = { 4 };   /* default gap between windows in p
 static unsigned int snap          = 32;       /* snap pixel */
 static int showbar                = 1;        /* 0 means no bar */
 static int topbar                 = 1;        /* 0 means bottom bar */
-static char font[]                = "Fira Code Nerd Font:pixelsize=18:antialias=true:autohint=true";
-static char dmenufont[]           = "Fira Code Nerd Font:pixelsize=18:antialias=true:autohint=true";
+static char font[]                = "Fira Code Nerd Font:pixelsize=14:antialias=true:autohint=true";
+static char dmenufont[]           = "Fira Code Nerd Font:pixelsize=14:antialias=true:autohint=true";
 static const char *fonts[]        = { font };
 static char normbgcolor[]         = "#222222";
 static char normbordercolor[]     = "#444444";
