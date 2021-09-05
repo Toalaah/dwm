@@ -64,9 +64,9 @@ static const char *termcmd[]  = { "st", NULL };
 ResourcePref resources[] = {
   { "font",            STRING,  &font },
   { "dmenufont",       STRING,  &dmenufont },
-  { "normbgcolor",     STRING,  &normbgcolor },
+  { "background",      STRING,  &normbgcolor },
   { "normbordercolor", STRING,  &normbordercolor },
-  { "normfgcolor",     STRING,  &normfgcolor },
+  { "foreground",      STRING,  &normfgcolor },
   { "selbgcolor",      STRING,  &selbgcolor },
   { "selbordercolor",  STRING,  &selbordercolor },
   { "selfgcolor",      STRING,  &selfgcolor },
