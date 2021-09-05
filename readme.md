@@ -9,4 +9,5 @@ The original repo can be found [here](https://git.suckless.org/dwm)
 - [Functionalgaps](https://dwm.suckless.org/patches/functionalgaps/), for enabling gaps.
 - [Xresources](https://dwm.suckless.org/patches/xresources/), for interacting / reading colors and variables from my xresources file.
 - [Always-centered](https://dwm.suckless.org/patches/alwayscenter/), for always ensuring all floating windows are centered.
+- [Centered-Master](https://dwm.suckless.org/patches/centeredmaster/), alternative layout in which the master window is centered instead of off to the side.
 
