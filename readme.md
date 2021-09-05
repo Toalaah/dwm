@@ -8,3 +8,5 @@ The original repo can be found [here](https://git.suckless.org/dwm)
 - [Pertag](https://dwm.suckless.org/patches/pertag/), allows for customm gap widths, client sizes, etc. on a per-workspace basis.
 - [Functionalgaps](https://dwm.suckless.org/patches/functionalgaps/), for enabling gaps.
 - [Xresources](https://dwm.suckless.org/patches/xresources/), for interacting / reading colors and variables from my xresources file.
+- [Always-centered](https://dwm.suckless.org/patches/alwayscenter/), for always ensuring all floating windows are centered.
+
