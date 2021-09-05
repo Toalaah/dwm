@@ -10,12 +10,12 @@ static int topbar                 = 1;        /* 0 means bottom bar */
 static char font[]                = "Fira Code Nerd Font:pixelsize=14:antialias=true:autohint=true";
 static char dmenufont[]           = "Fira Code Nerd Font:pixelsize=14:antialias=true:autohint=true";
 static const char *fonts[]        = { font };
-static char normbgcolor[]         = "#222222";
-static char normbordercolor[]     = "#444444";
-static char normfgcolor[]         = "#bbbbbb";
-static char selfgcolor[]          = "#eeeeee";
-static char selbordercolor[]      = "#005577";
-static char selbgcolor[]          = "#005577";
+static char normbgcolor[]         = "#000000";
+static char normfgcolor[]         = "#ffffff";
+static char normbordercolor[]     = "#000000";
+static char selbgcolor[]          = "#282828";
+static char selfgcolor[]          = "#ffffff";
+static char selbordercolor[]      = "#ffffff";
 static char *colors[][3] = {
   [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
   [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
@@ -57,16 +57,16 @@ static const Layout layouts[] = {
 void shiftview(const Arg *arg); 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 /* Xresources preferences to load at startup */
 ResourcePref resources[] = {
   { "font",            STRING,  &font },
   { "dmenufont",       STRING,  &dmenufont },
-  { "background",      STRING,  &normbgcolor },
+  { "normbgcolor",      STRING,  &normbgcolor },
   { "normbordercolor", STRING,  &normbordercolor },
-  { "foreground",      STRING,  &normfgcolor },
+  { "normfgcolor",      STRING,  &normfgcolor },
   { "selbgcolor",      STRING,  &selbgcolor },
   { "selbordercolor",  STRING,  &selbordercolor },
   { "selfgcolor",      STRING,  &selfgcolor },
