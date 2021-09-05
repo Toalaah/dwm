@@ -3,7 +3,7 @@
 /* appearance */
 static unsigned int borderpx      = 4;        /* border pixel of windows */
 static const int startwithgaps[]  = { 1 };	  /* 1 means gaps are used by default, this can be customized for each tag */
-static const unsigned int gappx[] = { 4 };   /* default gap between windows in pixels, this can be customized for each tag */
+static const unsigned int gappx[] = { 4 };    /* default gap between windows in pixels, this can be customized for each tag */
 static unsigned int snap          = 32;       /* snap pixel */
 static int showbar                = 1;        /* 0 means no bar */
 static int topbar                 = 1;        /* 0 means bottom bar */
@@ -23,10 +23,14 @@ static char *colors[][3] = {
 
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
-static const unsigned int ulinepad	   = 0;	/* horizontal padding between the underline and tag */
-static const unsigned int ulinestroke	 = 2;	/* thickness / height of the underline */
-static const unsigned int ulinevoffset = 0;	/* how far above the bottom of the bar the line should appear */
-static const int ulineall 		         = 0;	/* 1 to show underline on all tags, 0 for just the active ones */
+static const int hidevacanttags            = 0; /* 0 means workspaces with no content are hidden*/
+static const int highlightnonvacanttags         = 1; /* 1 means non-vacant workspaces are given an indicator to show they have content*/
+static const unsigned int activetagpad     = 5; /* horizontal padding between the active tag indicator line and tag borders */
+static const unsigned int ulinepad	       = 0;	/* horizontal padding between the underline and tag */
+static const unsigned int ulinestroke	     = 2;	/* thickness / height of the underline */
+static const unsigned int activetagstroke	 = 1;	/* thickness / height of the underline */
+static const unsigned int ulinevoffset     = 0;	/* how far above the bottom of the bar the line should appear */
+static const int ulineall 		             = 0;	/* 1 to show underline on all tags, 0 for just the active ones */
 
 static const Rule rules[] = {
   { "Gimp",     NULL,       NULL,       0,            1,           -1 },
