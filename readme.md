@@ -10,4 +10,5 @@ The original repo can be found [here](https://git.suckless.org/dwm)
 - [Xresources](https://dwm.suckless.org/patches/xresources/), for interacting / reading colors and variables from my xresources file.
 - [Always-centered](https://dwm.suckless.org/patches/alwayscenter/), for always ensuring all floating windows are centered.
 - [Centered-Master](https://dwm.suckless.org/patches/centeredmaster/), alternative layout in which the master window is centered instead of off to the side.
+- [Hide vacant tags](https://dwm.suckless.org/patches/hide_vacant_tags/), for only showing workspaces in the statusbar which have actual content
 
