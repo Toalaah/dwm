@@ -13,4 +13,5 @@ The original repo can be found [here](https://git.suckless.org/dwm)
 - [Hide vacant tags](https://dwm.suckless.org/patches/hide_vacant_tags/), for only showing workspaces in the statusbar which have actual content.
 - [Underline tags](https://dwm.suckless.org/patches/hide_vacant_tags/), slight aesthetic change to statusbar which underlines the current workspace you are on (with some modifications by myself to make toggling the functionality of the patch more accessible).
 - Custom "non-vacant-tag-highlight" patch, changes the default highlight given to non-empty workspaces to a sleeker rectangle which, in my opinion, looks better. Can be customized in a similar fashion to the `underline tags` patch.
+- [Attatchaside](https://dwm.suckless.org/patches/attachaside/), changes how windows are spawned.
 
