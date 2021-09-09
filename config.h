@@ -1,9 +1,9 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static unsigned int borderpx      = 4;        /* border pixel of windows */
+static unsigned int borderpx      = 2;        /* border pixel of windows */
 static const int startwithgaps[]  = { 1 };	  /* 1 means gaps are used by default, this can be customized for each tag */
-static const unsigned int gappx[] = { 4 };    /* default gap between windows in pixels, this can be customized for each tag */
+static const unsigned int gappx[] = { 10 };    /* default gap between windows in pixels, this can be customized for each tag */
 static unsigned int snap          = 32;       /* snap pixel */
 static int showbar                = 1;        /* 0 means no bar */
 static int topbar                 = 1;        /* 0 means bottom bar */
@@ -24,7 +24,7 @@ static char *colors[][3] = {
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const int hidevacanttags            = 0; /* 0 means workspaces with no content are hidden*/
-static const int highlightnonvacanttags         = 1; /* 1 means non-vacant workspaces are given an indicator to show they have content*/
+static const int highlightnonvacanttags    = 1; /* 1 means non-vacant workspaces are given an indicator to show they have content*/
 static const unsigned int activetagpad     = 5; /* horizontal padding between the active tag indicator line and tag borders */
 static const unsigned int ulinepad	       = 0;	/* horizontal padding between the underline and tag */
 static const unsigned int ulinestroke	     = 2;	/* thickness / height of the underline */
@@ -40,7 +40,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
 static int nmaster     = 1;    /* number of clients in master area */
-static int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
@@ -68,6 +68,7 @@ void shiftview(const Arg *arg);
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *browsercmd[]  = { "chromium", NULL };
 
 /* Xresources preferences to load at startup */
 ResourcePref resources[] = {
@@ -92,6 +93,7 @@ static Key keys[] = {
   /* modifier          key        function           argument */
   { MODKEY,            XK_p,      spawn,             {.v = dmenucmd } },
   { MODKEY|ShiftMask,  XK_Return, spawn,             {.v = termcmd } },
+  { MODKEY,            XK_w,      spawn,             {.v = browsercmd } },
   { MODKEY,            XK_b,      togglebar,         {0} },
   { MODKEY,            XK_j,      focusstack,        {.i = +1 } },
   { MODKEY,            XK_k,      focusstack,        {.i = -1 } },
