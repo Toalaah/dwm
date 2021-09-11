@@ -3,9 +3,10 @@
 /* appearance */
 static unsigned int borderpx      = 2;        /* border pixel of windows */
 static const int startwithgaps[]  = { 1 };	  /* 1 means gaps are used by default, this can be customized for each tag */
-static const unsigned int gappx[] = { 10 };    /* default gap between windows in pixels, this can be customized for each tag */
+static const unsigned int gappx[] = { 10 };   /* default gap between windows in pixels, this can be customized for each tag */
 static unsigned int snap          = 32;       /* snap pixel */
 static int showbar                = 1;        /* 0 means no bar */
+static const int showtitles       = 1;        /* 0 means title of the currently selected window is not shown */
 static int topbar                 = 1;        /* 0 means bottom bar */
 static char font[]                = "Fira Code Nerd Font:pixelsize=16:antialias=true:autohint=true";
 static char dmenufont[]           = "Fira Code Nerd Font:pixelsize=16:antialias=true:autohint=true";
@@ -19,6 +20,7 @@ static char selbordercolor[]      = "#ffffff";
 static char *colors[][3] = {
   [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
   [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
+  [SchemeTitle]  = { selbgcolor,  selfgcolor,  selbordercolor  },
  };
 
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
