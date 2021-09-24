@@ -6,10 +6,10 @@ static const int startwithgaps[]  = { 1 };	  /* 1 means gaps are used by default
 static const unsigned int gappx[] = { 10 };   /* default gap between windows in pixels, this can be customized for each tag */
 static unsigned int snap          = 32;       /* snap pixel */
 static int showbar                = 1;        /* 0 means no bar */
-static const int showtitles       = 1;        /* 0 means title of the currently selected window is not shown */
+static const int showtitles       = 0;        /* 0 means title of the currently selected window is not shown */
 static int topbar                 = 1;        /* 0 means bottom bar */
-static char font[]                = "Fira Code Nerd Font:pixelsize=16:antialias=true:autohint=true";
-static char dmenufont[]           = "Fira Code Nerd Font:pixelsize=16:antialias=true:autohint=true";
+static char font[]                = "Fira Code Nerd Font:pixelsize=14:antialias=true:autohint=true";
+static char dmenufont[]           = "Fira Code Nerd Font:pixelsize=14:antialias=true:autohint=true";
 static const char *fonts[]        = { font, "JoyPixels:pixelsize=12:antialias=true:autohint=true"};
 static char normbgcolor[]         = "#000000";
 static char normfgcolor[]         = "#ffffff";
@@ -109,6 +109,7 @@ static Key keys[] = {
   { MODKEY,            XK_t,      setlayout,         {.v = &layouts[0]} },
   { MODKEY,            XK_f,      setlayout,         {.v = &layouts[1]} },
   { MODKEY,            XK_m,      setlayout,         {.v = &layouts[2]} },
+  { MODKEY,            XK_c,      setlayout,         {.v = &layouts[3]} },
   { MODKEY,            XK_space,  setlayout,         {0} },
   { MODKEY|ShiftMask,  XK_space,  togglefloating,    {0} },
   { MODKEY,            XK_0,      view,              {.ui = ~0 } },
