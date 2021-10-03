@@ -7,6 +7,7 @@ static const unsigned int gappx[] = { 10 };   /* default gap between windows in 
 static unsigned int snap          = 32;       /* snap pixel */
 static int showbar                = 1;        /* 0 means no bar */
 static const int showtitles       = 0;        /* 0 means title of the currently selected window is not shown */
+static const int swallowfloating  = 0;        /* 1 means swallow floating windows by default */
 static int topbar                 = 1;        /* 0 means bottom bar */
 static char font[]                = "Jet Brains Mono Nerd Font:pixelsize=14:antialias=true:autohint=true";
 static char dmenufont[]           = "Jet Brains Mono Nerd Font:pixelsize=14:antialias=true:autohint=true";
@@ -35,8 +36,11 @@ static const unsigned int ulinevoffset     = 0;	/* how far above the bottom of t
 static const int ulineall 		             = 0;	/* 1 to show underline on all tags, 0 for just the active ones */
 
 static const Rule rules[] = {
-  { "Gimp",     NULL,       NULL,       0,            1,           -1 },
-  { "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	/* class     instance  title           tags mask  isfloating  monitor */
+	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
+	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
+	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1 },
+	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */

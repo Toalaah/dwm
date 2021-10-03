@@ -5,7 +5,7 @@ The original repo can be found [here](https://git.suckless.org/dwm)
 ### Applied Patches
 
 - [Shiftview](https://lists.suckless.org/dev/1104/7590.html), for rotating tags more efficiently.
-- [Pertag](https://dwm.suckless.org/patches/pertag/), allows for customm gap widths, client sizes, etc. on a per-workspace basis.
+- [Pertag](https://dwm.suckless.org/patches/pertag/), allows for custom gap widths, client sizes, etc. on a per-workspace basis.
 - [Functionalgaps](https://dwm.suckless.org/patches/functionalgaps/), for enabling gaps.
 - [Xresources](https://dwm.suckless.org/patches/xresources/), for interacting / reading colors and variables from my xresources file.
 - [Always-centered](https://dwm.suckless.org/patches/alwayscenter/), for always ensuring all floating windows are centered.
@@ -16,3 +16,4 @@ The original repo can be found [here](https://git.suckless.org/dwm)
 - [Attatchaside](https://dwm.suckless.org/patches/attachaside/), changes how windows are spawned.
 - [Title-Color](https://dwm.suckless.org/patches/titlecolor/), allows you to define a colorscheme specific to the title-section of the bar.
 - Custom "hide-titles" patch, allows you to specify whether the title of the currently selected window is shown in the bar. Can be toggled by changing the variable `showtitles` in `config.h`
+- [Swallow](https://dwm.suckless.org/patches/swallow/), Makes terminal which spawns new window-processes "consume" the process, replacing the terminal until it is exited, restoring the original terminal.
