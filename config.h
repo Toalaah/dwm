@@ -8,8 +8,8 @@ static unsigned int snap          = 32;       /* snap pixel */
 static int showbar                = 1;        /* 0 means no bar */
 static const int showtitles       = 0;        /* 0 means title of the currently selected window is not shown */
 static int topbar                 = 1;        /* 0 means bottom bar */
-static char font[]                = "Fira Code Nerd Font:pixelsize=14:antialias=true:autohint=true";
-static char dmenufont[]           = "Fira Code Nerd Font:pixelsize=14:antialias=true:autohint=true";
+static char font[]                = "Jet Brains Mono Nerd Font:pixelsize=14:antialias=true:autohint=true";
+static char dmenufont[]           = "Jet Brains Mono Nerd Font:pixelsize=14:antialias=true:autohint=true";
 static const char *fonts[]        = { font, "JoyPixels:pixelsize=12:antialias=true:autohint=true"};
 static char normbgcolor[]         = "#000000";
 static char normfgcolor[]         = "#ffffff";
@@ -75,7 +75,7 @@ static const char *browsercmd[]  = { "chromium", NULL };
 /* Xresources preferences to load at startup */
 ResourcePref resources[] = {
   { "font",            STRING,  &font },
-  { "dmenufont",       STRING,  &dmenufont },
+  { "font",            STRING,  &dmenufont },
   { "color0",          STRING,  &normbgcolor },
   { "color0",          STRING,  &normbordercolor },
   { "color4",          STRING,  &normfgcolor },
