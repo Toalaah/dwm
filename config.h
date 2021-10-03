@@ -101,6 +101,7 @@ static Key keys[] = {
   { MODKEY|ShiftMask,  XK_Return, spawn,             {.v = termcmd } },
   { MODKEY,            XK_w,      spawn,             {.v = browsercmd } },
   { MODKEY|ShiftMask,  XK_p,      spawn,             SHCMD("dmenu-pass") },
+  { MODKEY,            XK_F1,     spawn,             SHCMD("set-wallpaper") },
   { MODKEY,            XK_equal,  spawn,             SHCMD("set-volume -i; pkill -RTMIN+10 dwmblocks") },
   { MODKEY,            XK_minus,  spawn,             SHCMD("set-volume -d; pkill -RTMIN+10 dwmblocks") },
   { MODKEY,            XK_0,      spawn,             SHCMD("set-volume; pkill -RTMIN+10 dwmblocks") },
