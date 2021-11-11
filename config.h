@@ -40,6 +40,7 @@ static const Rule rules[] = {
 	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
 	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
 	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1 },
+	{ "Chromium",NULL,     NULL,           0,         0,          1,           1,        -1 },
 	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
@@ -104,6 +105,8 @@ static Key keys[] = {
   { MODKEY,            XK_F1,     spawn,             SHCMD("set-wallpaper") },
   { MODKEY,            XK_F2,     spawn,             SHCMD("dmenu-net") },
   { MODKEY,            XK_F3,     spawn,             SHCMD("dmenu-mount") },
+  { MODKEY,            XK_F4,     spawn,             SHCMD("dmenu-vpn") },
+  { MODKEY,            XK_F6,     spawn,             SHCMD("dmenu-logout") },
   { MODKEY|ShiftMask,  XK_b,      spawn,             SHCMD("dmenu-bookmarks") },
   { MODKEY,            XK_equal,  spawn,             SHCMD("set-volume -i; pkill -RTMIN+10 dwmblocks") },
   { MODKEY,            XK_minus,  spawn,             SHCMD("set-volume -d; pkill -RTMIN+10 dwmblocks") },
