@@ -108,6 +108,7 @@ static Key keys[] = {
   { MODKEY,            XK_F4,     spawn,             SHCMD("dmenu-vpn") },
   { MODKEY,            XK_F6,     spawn,             SHCMD("dmenu-logout") },
   { MODKEY|ShiftMask,  XK_b,      spawn,             SHCMD("dmenu-bookmarks") },
+  { MODKEY|ShiftMask,  XK_c,      spawn,             SHCMD("edit-config") },
   { MODKEY,            XK_equal,  spawn,             SHCMD("set-volume -i; pkill -RTMIN+10 dwmblocks") },
   { MODKEY,            XK_minus,  spawn,             SHCMD("set-volume -d; pkill -RTMIN+10 dwmblocks") },
   { MODKEY,            XK_0,      spawn,             SHCMD("set-volume; pkill -RTMIN+10 dwmblocks") },
