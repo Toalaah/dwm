@@ -24,7 +24,9 @@ static char *colors[][3] = {
   [SchemeTitle]  = { selbgcolor,  selfgcolor,  selbordercolor  },
  };
 
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[]     = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tagsalt[] = { "", "", "爵", "爵", "切", "ﭮ", "", "", "" };
+static const int momentaryalttags = 0; /* 1 means alttags will show only when key is held down*/
 
 static const int hidevacanttags            = 0; /* 0 means workspaces with no content are hidden*/
 static const int highlightnonvacanttags    = 1; /* 1 means non-vacant workspaces are given an indicator to show they have content*/
@@ -120,6 +122,7 @@ static Key keys[] = {
   { MODKEY,            XK_equal,  spawn,             SHCMD("set-volume -i; pkill -RTMIN+10 dwmblocks") },
   { MODKEY,            XK_minus,  spawn,             SHCMD("set-volume -d; pkill -RTMIN+10 dwmblocks") },
   { MODKEY,            XK_0,      spawn,             SHCMD("set-volume; pkill -RTMIN+10 dwmblocks") },
+  { MODKEY,            XK_n,      togglealttag,      {0} },
   { MODKEY,            XK_b,      togglebar,         {0} },
   { MODKEY,            XK_j,      focusstack,        {.i = +1 } },
   { MODKEY,            XK_k,      focusstack,        {.i = -1 } },
