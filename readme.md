@@ -17,3 +17,4 @@ The original repo can be found [here](https://git.suckless.org/dwm)
 - [Title-Color](https://dwm.suckless.org/patches/titlecolor/), allows you to define a colorscheme specific to the title-section of the bar.
 - Custom "hide-titles" patch, allows you to specify whether the title of the currently selected window is shown in the bar. Can be toggled by changing the variable `showtitles` in `config.h`
 - [Swallow](https://dwm.suckless.org/patches/swallow/), Makes terminal which spawns new window-processes "consume" the process, replacing the terminal until it is exited, restoring the original terminal.
+- [Scratchpad](https://dwm.suckless.org/patches/namedscratchpads/), Allows for the creation of multiple scratchpad windows.

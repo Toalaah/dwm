@@ -36,12 +36,13 @@ static const unsigned int ulinevoffset     = 0;	/* how far above the bottom of t
 static const int ulineall 		             = 0;	/* 1 to show underline on all tags, 0 for just the active ones */
 
 static const Rule rules[] = {
-	/* class     instance  title           tags mask  isfloating  monitor */
-	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
-	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
-	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1 },
-	{ "Chromium",NULL,     NULL,           0,         0,          1,           1,        -1 },
-	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
+	/* class     instance  title           tags mask  isfloating  isterminal   noswallow scratchkey    monitor */
+	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        0,            -1 },
+	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        0,            -1 },
+	{ "St",      NULL,     NULL,           0,         0,          1,           0,        0,            -1 },
+	{ "Chromium",NULL,     NULL,           0,         0,          1,           1,        0,            -1 },
+	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        0,            -1 }, /* xev */
+	{ NULL,      NULL,     "scratchpad",   0,         1,          0,           0,       's',           -1 },
 };
 
 /* layout(s) */
@@ -70,12 +71,16 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 /* forward declaration of shiftview function, see bottom of file for implementation */
-void shiftview(const Arg *arg); 
+void shiftview(const Arg *arg);
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[]  = { "chromium", NULL };
+static const char *fileexplorercmd[] = {"st", "-e", "ranger", NULL};
+
+/*First arg only serves to match against key in rules*/
+static const char *scratchpadcmd[] = {"s", "st", "-t", "scratchpad", "-e", NULL};
 
 /* Xresources preferences to load at startup */
 ResourcePref resources[] = {
@@ -100,6 +105,8 @@ static Key keys[] = {
   /* modifier          key        function           argument */
   { MODKEY,            XK_p,      spawn,             {.v = dmenucmd } },
   { MODKEY|ShiftMask,  XK_Return, spawn,             {.v = termcmd } },
+  { MODKEY,            XK_e,      togglescratch,     {.v = scratchpadcmd } },
+  { MODKEY,            XK_r,      spawn,             {.v = fileexplorercmd } },
   { MODKEY,            XK_w,      spawn,             {.v = browsercmd } },
   { MODKEY|ShiftMask,  XK_p,      spawn,             SHCMD("dmenu-pass") },
   { MODKEY,            XK_F1,     spawn,             SHCMD("set-wallpaper") },
@@ -107,6 +114,7 @@ static Key keys[] = {
   { MODKEY,            XK_F3,     spawn,             SHCMD("dmenu-mount") },
   { MODKEY,            XK_F4,     spawn,             SHCMD("dmenu-vpn") },
   { MODKEY,            XK_F6,     spawn,             SHCMD("dmenu-logout") },
+  { MODKEY|ShiftMask,  XK_e,      spawn,             SHCMD("dmenu-emoji") },
   { MODKEY|ShiftMask,  XK_b,      spawn,             SHCMD("dmenu-bookmarks") },
   { MODKEY|ShiftMask,  XK_c,      spawn,             SHCMD("edit-config") },
   { MODKEY,            XK_equal,  spawn,             SHCMD("set-volume -i; pkill -RTMIN+10 dwmblocks") },
@@ -167,8 +175,8 @@ static Button buttons[] = {
   { ClkTagBar,     MODKEY, Button3, toggletag,      {0} },
 };
 
-void 
-shiftview(const Arg *arg) 
+void
+shiftview(const Arg *arg)
 {
 	Arg shifted;
 	if(arg->i > 0) // left circular shift
