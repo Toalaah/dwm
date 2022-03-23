@@ -19,3 +19,4 @@ The original repo can be found [here](https://git.suckless.org/dwm)
 - [Swallow](https://dwm.suckless.org/patches/swallow/), Makes terminal which spawns new window-processes "consume" the process, replacing the terminal until it is exited, restoring the original terminal.
 - [Alternative tags](https://dwm.suckless.org/patches/alternativetags/), allow hotswapping between two sets of tag-indicators.
 - [Scratchpad](https://dwm.suckless.org/patches/namedscratchpads/), Allows for the creation of multiple scratchpad windows.
+- [Actualfullscreen](https://dwm.suckless.org/patches/actualfullscreen/), Better fullscreen experience

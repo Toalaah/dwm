@@ -2,7 +2,7 @@
 
 /* appearance */
 static unsigned int borderpx      = 2;        /* border pixel of windows */
-static const int startwithgaps[]  = { 1 };	  /* 1 means gaps are used by default, this can be customized for each tag */
+static const int startwithgaps[]  = { 1 };    /* 1 means gaps are used by default, this can be customized for each tag */
 static const unsigned int gappx[] = { 10 };   /* default gap between windows in pixels, this can be customized for each tag */
 static unsigned int snap          = 32;       /* snap pixel */
 static int showbar                = 1;        /* 0 means no bar */
@@ -31,20 +31,20 @@ static const int momentaryalttags = 0; /* 1 means alttags will show only when ke
 static const int hidevacanttags            = 0; /* 0 means workspaces with no content are hidden*/
 static const int highlightnonvacanttags    = 1; /* 1 means non-vacant workspaces are given an indicator to show they have content*/
 static const unsigned int activetagpad     = 5; /* horizontal padding between the active tag indicator line and tag borders */
-static const unsigned int ulinepad	       = 0;	/* horizontal padding between the underline and tag */
-static const unsigned int ulinestroke	     = 2;	/* thickness / height of the underline */
-static const unsigned int activetagstroke	 = 1;	/* thickness / height of the underline */
-static const unsigned int ulinevoffset     = 0;	/* how far above the bottom of the bar the line should appear */
-static const int ulineall 		             = 0;	/* 1 to show underline on all tags, 0 for just the active ones */
+static const unsigned int ulinepad         = 0;  /* horizontal padding between the underline and tag */
+static const unsigned int ulinestroke       = 2;  /* thickness / height of the underline */
+static const unsigned int activetagstroke   = 1;  /* thickness / height of the underline */
+static const unsigned int ulinevoffset     = 0;  /* how far above the bottom of the bar the line should appear */
+static const int ulineall                  = 0;  /* 1 to show underline on all tags, 0 for just the active ones */
 
 static const Rule rules[] = {
-	/* class     instance  title           tags mask  isfloating  isterminal   noswallow scratchkey    monitor */
-	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        0,            -1 },
-	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        0,            -1 },
-	{ "St",      NULL,     NULL,           0,         0,          1,           0,        0,            -1 },
-	{ "Chromium",NULL,     NULL,           0,         0,          1,           1,        0,            -1 },
-	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        0,            -1 }, /* xev */
-	{ NULL,      NULL,     "scratchpad",   0,         1,          0,           0,       's',           -1 },
+  /* class     instance  title           tags mask  isfloating  isterminal   noswallow scratchkey    monitor */
+  { "Gimp",    NULL,     NULL,           0,         1,          0,           0,        0,            -1 },
+  { "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        0,            -1 },
+  { "St",      NULL,     NULL,           0,         0,          1,           0,        0,            -1 },
+  { "Chromium",NULL,     NULL,           0,         0,          1,           1,        0,            -1 },
+  { NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        0,            -1 }, /* xev */
+  { NULL,      NULL,     "scratchpad",   0,         1,          0,           0,       's',           -1 },
 };
 
 /* layout(s) */
@@ -57,18 +57,18 @@ static const Layout layouts[] = {
   { "[]=",      tile },    /* first entry is default */
   { "><>",      NULL },    /* no layout function means floating behavior */
   { "[M]",      monocle },
-	{ "|M|",      centeredmaster },
-	{ ">M>",      centeredfloatingmaster },
+  { "|M|",      centeredmaster },
+  { ">M>",      centeredfloatingmaster },
 };
 
 /* key definitions */
 #define MODKEY Mod4Mask
 #define MODKEY_ALT Mod1Mask
 #define TAGKEYS(KEY,TAG) \
-	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+  { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
+  { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
+  { MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
+  { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -95,12 +95,12 @@ ResourcePref resources[] = {
   { "color8",          STRING,  &selbordercolor },
   { "color0",          STRING,  &selfgcolor },
   { "borderpx",        INTEGER, &borderpx },
-  { "snap",          	 INTEGER, &snap },
+  { "snap",             INTEGER, &snap },
   { "showbar",         INTEGER, &showbar },
   { "topbar",          INTEGER, &topbar },
   { "nmaster",         INTEGER, &nmaster },
   { "resizehints",     INTEGER, &resizehints },
-  { "mfact",      	 	 FLOAT,   &mfact },
+  { "mfact",            FLOAT,   &mfact },
 };
 
 static Key keys[] = {
@@ -132,12 +132,12 @@ static Key keys[] = {
   { MODKEY,            XK_l,      setmfact,          {.f = +0.05} },
   { MODKEY,            XK_Return, zoom,              {0} },
   { MODKEY,            XK_Tab,    view,              {0} },
-  { MODKEY, 	         XK_q,      killclient,        {0} },
+  { MODKEY,            XK_q,      killclient,        {0} },
   { MODKEY,            XK_t,      setlayout,         {.v = &layouts[0]} },
   { MODKEY,            XK_f,      setlayout,         {.v = &layouts[1]} },
   { MODKEY,            XK_m,      setlayout,         {.v = &layouts[2]} },
   { MODKEY,            XK_c,      setlayout,         {.v = &layouts[3]} },
-  { MODKEY|ShiftMask,  XK_f,      togglefullscreen,  {0} },
+  { MODKEY|ShiftMask,  XK_f,      togglefullscr,     {0} },
   { MODKEY,            XK_space,  setlayout,         {0} },
   { MODKEY|ShiftMask,  XK_space,  togglefloating,    {0} },
   { MODKEY,            XK_comma,  focusmon,          {.i = -1 } },
@@ -181,13 +181,13 @@ static Button buttons[] = {
 void
 shiftview(const Arg *arg)
 {
-	Arg shifted;
-	if(arg->i > 0) // left circular shift
-		shifted.ui = (selmon->tagset[selmon->seltags] << arg->i)
-		   | (selmon->tagset[selmon->seltags] >> (LENGTH(tags) - arg->i));
-	else // right circular shift
-		shifted.ui = selmon->tagset[selmon->seltags] >> (- arg->i)
-		   | selmon->tagset[selmon->seltags] << (LENGTH(tags) + arg->i);
-	view(&shifted);
+  Arg shifted;
+  if(arg->i > 0) // left circular shift
+    shifted.ui = (selmon->tagset[selmon->seltags] << arg->i)
+       | (selmon->tagset[selmon->seltags] >> (LENGTH(tags) - arg->i));
+  else // right circular shift
+    shifted.ui = selmon->tagset[selmon->seltags] >> (- arg->i)
+       | selmon->tagset[selmon->seltags] << (LENGTH(tags) + arg->i);
+  view(&shifted);
 }
 
