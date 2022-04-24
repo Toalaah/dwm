@@ -1722,6 +1722,19 @@ void setmfact(const Arg *arg) {
   arrange(selmon);
 }
 
+void loadEnviron(char* target, const char* env, const char* fallback) {
+  const char* tmp = getenv(env);
+  if (tmp == NULL) {
+    strcpy(target, fallback); return;
+  }
+  strcpy(target, tmp); return;
+}
+
+void setupEnviron(void) {
+  loadEnviron(terminal , "TERMINAL" , "st");
+  loadEnviron(browser  , "BROWSER"  ,  "chromium");
+}
+
 void setup(void) {
   int i;
   XSetWindowAttributes wa;
@@ -2707,6 +2720,7 @@ int main(int argc, char *argv[]) {
     die("dwm: cannot get xcb connection\n");
   checkotherwm();
   XrmInitialize();
+  setupEnviron();
   load_xresources();
   setup();
 #ifdef __OpenBSD__

@@ -36,15 +36,18 @@ static const unsigned int ulinestroke       = 2;  /* thickness / height of the u
 static const unsigned int activetagstroke   = 1;  /* thickness / height of the underline */
 static const unsigned int ulinevoffset     = 0;  /* how far above the bottom of the bar the line should appear */
 static const int ulineall                  = 0;  /* 1 to show underline on all tags, 0 for just the active ones */
+static char terminal[50];
+static char browser[50];
 
 static const Rule rules[] = {
-  /* class     instance  title           tags mask  isfloating  isterminal   noswallow scratchkey    monitor */
-  { "Gimp",    NULL,     NULL,           0,         1,          0,           0,        0,            -1 },
-  { "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        0,            -1 },
-  { "St",      NULL,     NULL,           0,         0,          1,           0,        0,            -1 },
-  { "Chromium",NULL,     NULL,           0,         0,          1,           1,        0,            -1 },
-  { NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        0,            -1 }, /* xev */
-  { NULL,      NULL,     "scratchpad",   0,         1,          0,           0,       's',           -1 },
+  /* class       instance  title           tags mask  isfloating  isterminal   noswallow scratchkey    monitor */
+  { "Gimp",      NULL,     NULL,           0,         1,          0,           0,        0,            -1 },
+  { "Firefox",   NULL,     NULL,           1 << 8,    0,          0,          -1,        0,            -1 },
+  { "St",        NULL,     NULL,           0,         0,          1,           0,        0,            -1 },
+  { "Alacritty", NULL,     NULL,           0,         0,          1,           0,        0,            -1 },
+  { "Chromium",  NULL,     NULL,           0,         0,          1,           1,        0,            -1 },
+  { NULL,        NULL,     "Event Tester", 0,         0,          0,           1,        0,            -1 }, /* xev */
+  { NULL,        NULL,     "scratchpad",   0,         1,          0,           0,       's',           -1 },
 };
 
 /* layout(s) */
@@ -77,12 +80,12 @@ void shiftview(const Arg *arg);
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "st", NULL };
-static const char *browsercmd[]  = { "chromium", NULL };
-static const char *fileexplorercmd[] = {"st", "-e", "ranger", NULL};
+static const char *termcmd[]  = { terminal, NULL };
+static const char *browsercmd[]  = { browser, NULL };
+static const char *fileexplorercmd[] = {terminal, "-e", "ranger", NULL};
 
 /*First arg only serves to match against key in rules*/
-static const char *scratchpadcmd[] = {"s", "st", "-t", "scratchpad", "-e", NULL};
+static const char *scratchpadcmd[] = {"s", terminal, "-t", "scratchpad", "-e", NULL};
 
 /* Xresources preferences to load at startup */
 ResourcePref resources[] = {
@@ -95,7 +98,7 @@ ResourcePref resources[] = {
   { "color8",          STRING,  &selbordercolor },
   { "color0",          STRING,  &selfgcolor },
   { "borderpx",        INTEGER, &borderpx },
-  { "snap",             INTEGER, &snap },
+  { "snap",            INTEGER, &snap },
   { "showbar",         INTEGER, &showbar },
   { "topbar",          INTEGER, &topbar },
   { "nmaster",         INTEGER, &nmaster },
