@@ -9,6 +9,9 @@ static int showbar                = 1;        /* 0 means no bar */
 static const int showtitles       = 0;        /* 0 means title of the currently selected window is not shown */
 static const int swallowfloating  = 0;        /* 1 means swallow floating windows by default */
 static int topbar                 = 1;        /* 0 means bottom bar */
+static const int usealtbar        = 1;        /* 1 means use non-dwm status bar */
+static const char *altbarclass    = "Polybar"; /* Alternate bar class name */
+static const char *altbarcmd      = "$HOME/bar.sh"; /* Alternate bar launch command */
 static char font[]                = "JetBrains Mono Nerd Font:pixelsize=14:antialias=true:autohint=true";
 static char dmenufont[]           = "JetBrains Mono Nerd Font:pixelsize=14:antialias=true:autohint=true";
 static const char *fonts[]        = { font, "JoyPixels:pixelsize=12:antialias=true:autohint=true"};
@@ -73,6 +76,25 @@ static const Layout layouts[] = {
   { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
   { MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
   { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+
+static const char *ipcsockpath = "/tmp/dwm.sock";
+static IPCCommand ipccommands[] = {
+  IPCCOMMAND(  view,                1,      {ARG_TYPE_UINT}   ),
+  IPCCOMMAND(  toggleview,          1,      {ARG_TYPE_UINT}   ),
+  IPCCOMMAND(  tag,                 1,      {ARG_TYPE_UINT}   ),
+  IPCCOMMAND(  toggletag,           1,      {ARG_TYPE_UINT}   ),
+  IPCCOMMAND(  tagmon,              1,      {ARG_TYPE_UINT}   ),
+  IPCCOMMAND(  focusmon,            1,      {ARG_TYPE_SINT}   ),
+  IPCCOMMAND(  focusstack,          1,      {ARG_TYPE_SINT}   ),
+  IPCCOMMAND(  zoom,                1,      {ARG_TYPE_NONE}   ),
+  IPCCOMMAND(  incnmaster,          1,      {ARG_TYPE_SINT}   ),
+  IPCCOMMAND(  killclient,          1,      {ARG_TYPE_SINT}   ),
+  IPCCOMMAND(  togglefloating,      1,      {ARG_TYPE_NONE}   ),
+  IPCCOMMAND(  setmfact,            1,      {ARG_TYPE_FLOAT}  ),
+  IPCCOMMAND(  setlayoutsafe,       1,      {ARG_TYPE_PTR}    ),
+  IPCCOMMAND(  quit,                1,      {ARG_TYPE_NONE}   )
+};
+
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }

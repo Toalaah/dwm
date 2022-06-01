@@ -20,3 +20,5 @@ The original repo can be found [here](https://git.suckless.org/dwm)
 - [Alternative tags](https://dwm.suckless.org/patches/alternativetags/), allow hotswapping between two sets of tag-indicators.
 - [Scratchpad](https://dwm.suckless.org/patches/namedscratchpads/), Allows for the creation of multiple scratchpad windows.
 - [Actualfullscreen](https://dwm.suckless.org/patches/actualfullscreen/), Better fullscreen experience
+- [DWM-IPC](https://github.com/mihirlad55/dwm-ipc), requirement for [dwm-polybar-module](https://github.com/mihirlad55/polybar-dwm-module)
+- [DWM-Anybar](https://github.com/mihirlad55/dwm-anybar), requirement for [dwm-polybar-module](https://github.com/mihirlad55/polybar-dwm-module)
