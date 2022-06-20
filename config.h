@@ -3,7 +3,7 @@
 /* appearance */
 static unsigned int borderpx      = 2;        /* border pixel of windows */
 static const int startwithgaps[]  = { 1 };    /* 1 means gaps are used by default, this can be customized for each tag */
-static const unsigned int gappx[] = { 10 };   /* default gap between windows in pixels, this can be customized for each tag */
+static const unsigned int gappx[] = { 4 };   /* default gap between windows in pixels, this can be customized for each tag */
 static unsigned int snap          = 32;       /* snap pixel */
 static int showbar                = 1;        /* 0 means no bar */
 static const int showtitles       = 0;        /* 0 means title of the currently selected window is not shown */
@@ -11,9 +11,9 @@ static const int swallowfloating  = 0;        /* 1 means swallow floating window
 static int topbar                 = 1;        /* 0 means bottom bar */
 static const int usealtbar        = 1;        /* 1 means use non-dwm status bar */
 static const char *altbarclass    = "Polybar"; /* Alternate bar class name */
-static const char *altbarcmd      = "$HOME/bar.sh"; /* Alternate bar launch command */
-static char font[]                = "JetBrains Mono Nerd Font:pixelsize=14:antialias=true:autohint=true";
-static char dmenufont[]           = "JetBrains Mono Nerd Font:pixelsize=14:antialias=true:autohint=true";
+static const char *altbarcmd      = "$HOME/.config/polybar/launch.sh"; /* Alternate bar launch command */
+static char font[]                = "JetBrains Mono:pixelsize=14:antialias=true:autohint=true";
+static char dmenufont[]           = "JetBrains Mono:pixelsize=14:antialias=true:autohint=true";
 static const char *fonts[]        = { font, "JoyPixels:pixelsize=12:antialias=true:autohint=true"};
 static char normbgcolor[]         = "#000000";
 static char normfgcolor[]         = "#ffffff";
@@ -61,11 +61,10 @@ static int resizehints = 0;    /* 1 means respect size hints in tiled resizals *
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
-  { "[]=",      tile },    /* first entry is default */
-  { "><>",      NULL },    /* no layout function means floating behavior */
-  { "[M]",      monocle },
-  { "|M|",      centeredmaster },
-  { ">M>",      centeredfloatingmaster },
+  { "﩯",tile },    /* first entry is default */
+  { "", NULL },    /* no layout function means floating behavior */
+  { "", monocle },
+  { "יִ", centeredmaster },
 };
 
 /* key definitions */
@@ -126,7 +125,7 @@ ResourcePref resources[] = {
   { "topbar",          INTEGER, &topbar },
   { "nmaster",         INTEGER, &nmaster },
   { "resizehints",     INTEGER, &resizehints },
-  { "mfact",            FLOAT,   &mfact },
+  { "mfact",           FLOAT,   &mfact },
 };
 
 static Key keys[] = {
