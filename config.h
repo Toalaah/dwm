@@ -61,6 +61,9 @@ static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *browsercmd[]  = { "chromium", NULL };
 
+/* forward define shiftview function */
+void shiftview(const Arg *arg);
+
 static const Key keys[] = {
 	/* modifier          key        function        argument */
   { MODKEY,            XK_p,      spawn,             {.v = dmenucmd } },
@@ -87,6 +90,8 @@ static const Key keys[] = {
   { MODKEY,            XK_l,      setmfact,          {.f = +0.05} },
   { MODKEY,            XK_Return, zoom,              {0} },
   { MODKEY,            XK_Tab,    view,              {0} },
+  { MODKEY,            XK_u,      shiftview,         {.i = -1 } },
+  { MODKEY,            XK_o,      shiftview,         {.i = +1 } },
   { MODKEY,            XK_q,      killclient,        {0} },
   { MODKEY,            XK_t,      setlayout,         {.v = &layouts[0]} },
   { MODKEY,            XK_f,      setlayout,         {.v = &layouts[1]} },
@@ -126,3 +131,16 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
 
+void shiftview(const Arg *arg) {
+	Arg shifted;
+
+	if(arg->i > 0) // left circular shift
+		shifted.ui = (selmon->tagset[selmon->seltags] << arg->i)
+		   | (selmon->tagset[selmon->seltags] >> (LENGTH(tags) - arg->i));
+
+	else // right circular shift
+		shifted.ui = selmon->tagset[selmon->seltags] >> (- arg->i)
+		   | selmon->tagset[selmon->seltags] << (LENGTH(tags) + arg->i);
+
+	view(&shifted);
+}
