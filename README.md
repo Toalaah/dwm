@@ -26,6 +26,7 @@ fork. The original repo can be found <a href="https://git.suckless.org/dwm">here
 - [pertag](https://dwm.suckless.org/patches/pertag/)
 - [xresources](https://dwm.suckless.org/patches/xresources/)
 - [swallow](https://dwm.suckless.org/patches/swallow/)
+- [functionalgaps](https://dwm.suckless.org/patches/functionalgaps/)
 
 ## License
 

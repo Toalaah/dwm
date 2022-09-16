@@ -6,6 +6,8 @@ static unsigned int snap      = 32;       /* snap pixel */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
+static const int startwithgaps[]    = { 1 };	/* 1 means gaps are used by default, this can be customized for each tag */
+static const unsigned int gappx[]   = { 4 };   /* default gap between windows in pixels, this can be customized for each tag */
 static char font[]                = "JetBrains Mono:pixelsize=14:antialias=true:autohint=true";
 static char dmenufont[]           = "JetBrains Mono:pixelsize=14:antialias=true:autohint=true";
 static const char *fonts[]        = { font, "JoyPixels:pixelsize=12:antialias=true:autohint=true"};
@@ -128,6 +130,10 @@ static const Key keys[] = {
   { MODKEY|ShiftMask,  XK_comma,  tagmon,            {.i = -1 } },
   { MODKEY|ShiftMask,  XK_period, tagmon,            {.i = +1 } },
   { MODKEY,            XK_F5,     reload_xresources, {.v = NULL } },
+  { MODKEY|ShiftMask,  XK_j,      setgaps,           {.i = -1 } },
+  { MODKEY|ShiftMask,  XK_k,      setgaps,           {.i = +1 } },
+	{ MODKEY|ShiftMask,  XK_l,      setgaps,           {.i = GAP_RESET } },
+	{ MODKEY|ShiftMask,  XK_m,      setgaps,           {.i = GAP_TOGGLE} },
   { MODKEY|ShiftMask,  XK_q,      quit,              {0} },
 	TAGKEYS(             XK_1,                          0)
 	TAGKEYS(             XK_2,                          1)
