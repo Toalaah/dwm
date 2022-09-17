@@ -30,6 +30,9 @@ install: all
 	cp -f dwm ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm
 
+ansible-diff:
+	@[[ $$(sha256sum $$(which dwm) ./dwm | awk '{ print $$1 }' | uniq | wc -l) -ne 1 ]] && echo ANSIBLE_CHANGED_TRUE; true
+
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm
 
