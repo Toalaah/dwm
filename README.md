@@ -7,12 +7,13 @@ fork. The original repo can be found <a href="https://git.suckless.org/dwm">here
 ## Installation
 
 1. Make sure you have the required Xlib headers installed. Then, simply clone
-   the repository and run the following make command:
+   the repository and run the following make commands:
 
    ```bash
    git clone git@github.com:Toalaah/dwm.git
-   cd dwm/src
-   sudo make clean install
+   cd dwm
+   make
+   sudo make install
    ```
 
 ## Patches

@@ -1,9 +1,9 @@
 # dwm - dynamic window manager
 # See LICENSE file for copyright and license details.
 
-include config.mk
+include src/config.mk
 
-SRC = drw.c dwm.c util.c
+SRC = src/drw.c src/dwm.c src/util.c
 OBJ = ${SRC:.c=.o}
 
 all: options dwm
@@ -14,16 +14,16 @@ options:
 	@echo "LDFLAGS  = ${LDFLAGS}"
 	@echo "CC       = ${CC}"
 
-.c.o:
+src/.c.o:
 	${CC} -c ${CFLAGS} $<
 
-${OBJ}: config.h config.mk
+${OBJ}: src/config.h src/config.mk
 
 dwm: ${OBJ}
 	${CC} -o $@ ${OBJ} ${LDFLAGS}
 
 clean:
-	rm -f dwm ${OBJ} dwm-${VERSION}.tar.gz
+	rm -f src/dwm ${OBJ}
 
 install: all
 	mkdir -p ${DESTDIR}${PREFIX}/bin
