@@ -2293,7 +2293,7 @@ updateclientlist()
 void
 updateclienttag(Client *c) {
 	long rawdata[] = { c->tags };
-  /* c->tags returns the respective tags as 2**{tag_nr}, net to counteract this with some bitshifting  */
+  /* c->tags returns the respective tags as 2**{tag_nr}, need to counteract this with some bitshifting  */
 	int i=0;
 	while(*rawdata >> i+1){
 		i++;
