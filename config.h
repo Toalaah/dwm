@@ -71,9 +71,6 @@ static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgco
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *browsercmd[]  = { "chromium", NULL };
 
-/* forward define shiftview function */
-void shiftview(const Arg *arg);
-
 /*
  * Xresources preferences to load at startup
  */
@@ -94,6 +91,8 @@ ResourcePref resources[] = {
   { "resizehints",     INTEGER, &resizehints },
   { "mfact",           FLOAT,   &mfact },
 };
+
+#include "shiftview.c"
 
 static const Key keys[] = {
 	/* modifier          key        function        argument */
@@ -167,16 +166,3 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
 
-void shiftview(const Arg *arg) {
-	Arg shifted;
-
-	if(arg->i > 0) // left circular shift
-		shifted.ui = (selmon->tagset[selmon->seltags] << arg->i)
-		   | (selmon->tagset[selmon->seltags] >> (LENGTH(tags) - arg->i));
-
-	else // right circular shift
-		shifted.ui = selmon->tagset[selmon->seltags] >> (- arg->i)
-		   | selmon->tagset[selmon->seltags] << (LENGTH(tags) + arg->i);
-
-	view(&shifted);
-}
