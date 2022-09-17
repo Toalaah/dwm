@@ -29,6 +29,7 @@ fork. The original repo can be found <a href="https://git.suckless.org/dwm">here
 - [functionalgaps](https://dwm.suckless.org/patches/functionalgaps/)
 - [anybar](https://dwm.suckless.org/patches/anybar/)
 - [ewmhtags](https://dwm.suckless.org/patches/ewmhtags/)
+- [actualfullscreen](https://dwm.suckless.org/patches/actualfullscreen/)
 
 ## License
 
