@@ -11,7 +11,7 @@ fork. The original repo can be found <a href="https://git.suckless.org/dwm">here
 
    ```bash
    git clone git@github.com:Toalaah/dwm.git
-   cd dwm
+   cd dwm/src
    sudo make clean install
    ```
 
