@@ -11,7 +11,7 @@ static const unsigned int gappx[]   = { 4 };   /* default gap between windows in
 static const int usealtbar          = 1;        /* 1 means use non-dwm status bar */
 static const char *altbarclass      = "Polybar"; /* Alternate bar class name */
 static const char *alttrayname      = "tray";    /* Polybar tray instance name */
-static const char *altbarcmd        = "$HOME/.config/polybar/launch.sh"; /* Alternate bar launch command */
+static const char *altbarcmd        = "$HOME/.config/dwm/statusbar/launch.sh"; /* Alternate bar launch command */
 static char font[]                = "JetBrains Mono:pixelsize=14:antialias=true:autohint=true";
 static char dmenufont[]           = "JetBrains Mono:pixelsize=14:antialias=true:autohint=true";
 static const char *fonts[]        = { font, "JoyPixels:pixelsize=12:antialias=true:autohint=true"};
@@ -129,6 +129,7 @@ static const Key keys[] = {
   { MODKEY,            XK_t,      setlayout,         {.v = &layouts[0]} },
   { MODKEY,            XK_f,      setlayout,         {.v = &layouts[1]} },
   { MODKEY,            XK_m,      setlayout,         {.v = &layouts[2]} },
+  { MODKEY|ShiftMask,  XK_r,      reload_wm,         {0} },
   { MODKEY,            XK_space,  setlayout,         {0} },
   { MODKEY|ShiftMask,  XK_space,  togglefloating,    {0} },
   { MODKEY|ShiftMask,  XK_f,      togglefullscr,     {0} },
