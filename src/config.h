@@ -79,7 +79,7 @@ static const char *browsercmd[]  = { "chromium", NULL };
  */
 ResourcePref resources[] = {
   { "font",            STRING,  &font },
-  { "font",            STRING,  &dmenufont },
+  { "dmfont",          STRING,  &dmenufont },
   { "color0",          STRING,  &normbgcolor },
   { "color0",          STRING,  &normbordercolor },
   { "color4",          STRING,  &normfgcolor },
