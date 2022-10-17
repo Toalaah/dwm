@@ -9,6 +9,7 @@ TEMP_FILE=/tmp/polybar.config
 export THEME_PATH="$CONF_BASE"/themes/colors-default.ini
 export MODULE_PATH="$CONF_BASE"/module-layouts/default.ini
 export FONT_PATH="$CONF_BASE"/font-config/fonts-default.ini
+export BAR_HEIGHT=22
 
 is_hidpi() {
   # default to no hidpi if can't determine product name
@@ -24,15 +25,6 @@ is_hidpi() {
   esac
 }
 
-set_theme() {
-  sed -i "s/colors-default/$THEME/" "$TEMP_FILE"
-}
-
-configure_hidpi() {
-  sed -i "s/fonts-default/fonts-hidpi/" "$TEMP_FILE"
-  sed -i "s/height=.*/height=40/" "$TEMP_FILE"
-}
-
 main() {
   # ensure polybar insance is not already running
   killall -q polybar
@@ -40,6 +32,7 @@ main() {
   if is_hidpi; then
     export MODULE_PATH="$CONF_BASE"/module-layouts/laptop.ini
     export FONT_PATH="$CONF_BASE"/font-config/fonts-hidpi.ini
+    export BAR_HEIGHT=40
   fi
 
   envsubst < "$CONF_BASE"/bar-base.ini > "$TEMP_FILE"
