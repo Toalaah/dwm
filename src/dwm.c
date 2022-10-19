@@ -69,6 +69,12 @@
 #define GAP_TOGGLE 100
 #define GAP_RESET  0
 
+/*
+ * Can't think of a program with a name longer than 50 chars, so this allocation
+ * should be more than enough.
+ * */
+#define PROGRAM_MAX_CHAR_COUNT 50
+
 /* enums */
 enum { CurNormal, CurResize, CurMove, CurLast }; /* cursor */
 enum { SchemeNorm, SchemeSel }; /* color schemes */
@@ -93,6 +99,11 @@ typedef struct {
 	void (*func)(const Arg *arg);
 	const Arg arg;
 } Button;
+
+typedef struct {
+  const char envKey[PROGRAM_MAX_CHAR_COUNT];
+  char value[PROGRAM_MAX_CHAR_COUNT];
+} EnvProgram;
 
 typedef struct Pertag Pertag;
 typedef struct Monitor Monitor;
@@ -292,6 +303,7 @@ static int isdescprocess(pid_t p, pid_t c);
 static Client *swallowingclient(Window w);
 static Client *termforwin(const Client *c);
 static pid_t winpid(Window w);
+static void load_env_programs(void);
 static void load_xresources(void);
 static void reload_xresources(const Arg *arg);
 static void resource_load(XrmDatabase db, char *name, enum resource_type rtype, void *dst);
@@ -2842,6 +2854,16 @@ void reload_xresources(const Arg *arg) {
 }
 
 void
+load_env_programs(void)
+{
+  for (size_t i = 0; i < LENGTH(envPrograms); i++) {
+    const char *tmp = getenv(envPrograms[i].envKey);
+    if (tmp != NULL)
+      strcpy(envPrograms[i].value, tmp); 
+    }
+}
+
+void
 load_xresources(void)
 {
 	Display *display;
@@ -2876,6 +2898,7 @@ main(int argc, char *argv[])
 		die("dwm: cannot get xcb connection\n");
 	checkotherwm();
 	XrmInitialize();
+  load_env_programs();
 	load_xresources();
 	setup();
 #ifdef __OpenBSD__

@@ -30,6 +30,19 @@ static char *colors[][3] = {
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
+static EnvProgram envPrograms[] = {
+  /*envPrograms[0] = terminal*/
+  {
+    "TERMINAL",
+    "st"
+  },
+  /*envPrograms[1] = browser*/
+  {
+    "BROWSER",
+    "chromium"
+  }
+};
+
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -71,8 +84,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-l", "20", "-c", NULL };
-static const char *termcmd[]  = { "kitty", NULL };
-static const char *browsercmd[]  = { "chromium", NULL };
+static const char *termcmd[]  = { envPrograms[0].value, NULL };
+static const char *browsercmd[]  = { envPrograms[1].value, NULL };
 
 /*
  * Xresources preferences to load at startup
