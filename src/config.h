@@ -1,20 +1,20 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static unsigned int borderpx  = 2;        /* border pixel of windows */
-static unsigned int snap      = 32;       /* snap pixel */
-static int showbar            = 1;        /* 0 means no bar */
-static int topbar             = 1;        /* 0 means bottom bar */
+static unsigned int borderpx        = 2;        /* border pixel of windows */
+static unsigned int snap            = 32;       /* snap pixel */
+static int showbar                  = 1;        /* 0 means no bar */
+static int topbar                   = 1;        /* 0 means bottom bar */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int startwithgaps[]    = { 1 };	/* 1 means gaps are used by default, this can be customized for each tag */
 static const unsigned int gappx[]   = { 4 };   /* default gap between windows in pixels, this can be customized for each tag */
 static const int usealtbar          = 1;        /* 1 means use non-dwm status bar */
 static const char *altbarclass      = "Polybar"; /* Alternate bar class name */
 static const char *alttrayname      = "tray";    /* Polybar tray instance name */
-static const char *altbarcmd        = "$HOME/.config/dwm/statusbar/launch.sh"; /* Alternate bar launch command */
-static char font[]                = "JetBrains Mono:pixelsize=14:antialias=true:autohint=true";
-static char dmenufont[]           = "JetBrains Mono:pixelsize=14:antialias=true:autohint=true";
-static const char *fonts[]        = { font, "JoyPixels:pixelsize=12:antialias=true:autohint=true"};
+static const char *altbarcmd        = "$HOME/.config/dwm/polybar/launch.sh"; /* Alternate bar launch command */
+static char font[]                  = "JetBrains Mono:pixelsize=14:antialias=true:autohint=true";
+static char dmenufont[]             = "JetBrains Mono:pixelsize=14:antialias=true:autohint=true";
+static const char *fonts[]          = { font, "JoyPixels:pixelsize=12:antialias=true:autohint=true"};
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
