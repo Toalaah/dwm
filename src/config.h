@@ -110,6 +110,7 @@ ResourcePref resources[] = {
 
 #include "shiftview.c"
 #define SUPERSHFTCTRL MODKEY|ShiftMask|ControlMask
+#include <X11/XF86keysym.h>
 
 static const Key keys[] = {
 	/* modifier          key        function        argument */
@@ -158,15 +159,22 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,  XK_l,      setgaps,           {.i = GAP_RESET } },
 	{ MODKEY|ShiftMask,  XK_m,      setgaps,           {.i = GAP_TOGGLE} },
   { MODKEY|ShiftMask,  XK_q,      quit,              {0} },
-	TAGKEYS(             XK_1,                          0)
-	TAGKEYS(             XK_2,                          1)
-	TAGKEYS(             XK_3,                          2)
-	TAGKEYS(             XK_4,                          3)
-	TAGKEYS(             XK_5,                          4)
-	TAGKEYS(             XK_6,                          5)
-	TAGKEYS(             XK_7,                          6)
-	TAGKEYS(             XK_8,                          7)
-	TAGKEYS(             XK_9,                          8)
+  { 0,                 XF86XK_AudioMute,             spawn, SHCMD("pamixer --toggle-mute") },
+  { 0,                 XF86XK_AudioRaiseVolume,      spawn, SHCMD("pamixer --increase 5") },
+  { 0,                 XF86XK_AudioLowerVolume,      spawn, SHCMD("pamixer --decrease 5") },
+  { 0,                 XF86XK_MonBrightnessUp,       spawn, SHCMD("set-brightness -i") },
+  { 0,                 XF86XK_MonBrightnessDown,     spawn, SHCMD("set-brightness -d") },
+  { 0,                 XF86XK_AudioMicMute,          spawn, SHCMD("toggle-microphone") },
+  { 0,                 XF86XK_WLAN,                  spawn, SHCMD("toggle-wifi") },
+  TAGKEYS(             XK_1,                         0)
+	TAGKEYS(             XK_2,                         1)
+	TAGKEYS(             XK_3,                         2)
+	TAGKEYS(             XK_4,                         3)
+	TAGKEYS(             XK_5,                         4)
+	TAGKEYS(             XK_6,                         5)
+	TAGKEYS(             XK_7,                         6)
+	TAGKEYS(             XK_8,                         7)
+	TAGKEYS(             XK_9,                         8)
 };
 
 /* button definitions */
