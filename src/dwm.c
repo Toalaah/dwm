@@ -29,6 +29,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <sys/stat.h>
 #include <sys/wait.h>
 #include <X11/cursorfont.h>
 #include <X11/keysym.h>
@@ -243,6 +244,7 @@ static void resizeclient(Client *c, int x, int y, int w, int h);
 static void resizemouse(const Arg *arg);
 static void restack(Monitor *m);
 static void run(void);
+static void autostart(void);
 static void scan(void);
 static void scantray(void);
 static int sendevent(Client *c, Atom proto);
@@ -1648,6 +1650,14 @@ run(void)
 }
 
 void
+autostart(void)
+{
+	if (*autostartfile)
+		system(autostartfile);
+}
+
+
+void
 scan(void)
 {
 	unsigned int i, num;
@@ -2906,6 +2916,7 @@ main(int argc, char *argv[])
 		die("pledge");
 #endif /* __OpenBSD__ */
 	scan();
+	autostart();
 	run();
   if(restart) execvp(argv[0], argv);
 	cleanup();

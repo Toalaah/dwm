@@ -12,6 +12,7 @@ fork. The original repo can be found <a href="https://git.suckless.org/dwm">here
 ## Features
 
 - Customizable gap/window settings per workspace
+- Supports autostarting proceses via file (ex wallpaper-setter or statusbars)
 - Xresources compatibility
 - Hot-reloading via <kbd>Super</kbd>+<kbd>Shift</kbd>+<kbd>r</kbd>
 - Native support of most EWMH hints:

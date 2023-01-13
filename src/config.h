@@ -12,6 +12,7 @@ static const int usealtbar          = 1;        /* 1 means use non-dwm status ba
 static const char *altbarclass      = "Polybar"; /* Alternate bar class name */
 static const char *alttrayname      = "tray";    /* Polybar tray instance name */
 static const char *altbarcmd        = "$HOME/.config/dwm/polybar/launch.sh"; /* Alternate bar launch command */
+static const char *autostartfile    = "$HOME/.config/dwm/scripts/autostart";
 static char font[]                  = "JetBrains Mono:pixelsize=14:antialias=true:autohint=true";
 static char dmenufont[]             = "JetBrains Mono:pixelsize=14:antialias=true:autohint=true";
 static const char *fonts[]          = { font, "JoyPixels:pixelsize=12:antialias=true:autohint=true"};
