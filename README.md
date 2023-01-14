@@ -1,7 +1,7 @@
 <h2 align="center"><i>DWM</i></h2>
 
 <p align="center">
-<img src="https://img.shields.io/github/workflow/status/toalaah/dwm/Build?color=pink&logo=github&style=for-the-badge"
+<img src="https://img.shields.io/github/actions/workflow/status/toalaah/dwm/build.yml?branch=master&Build?color=pink&logo=github&style=for-the-badge"
      alt="build status" />
 <img src="https://img.shields.io/github/license/toalaah/dwm?color=add8e6&style=for-the-badge"
      alt="build status" />
